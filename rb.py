@@ -144,7 +144,7 @@ while a != "":
   a = input("enter string: ")
   if(a == ""):
     break
-  rb(a)
+  rb(a.lower())
   newline()
 
 #rb(a)
