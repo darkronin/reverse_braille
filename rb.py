@@ -22,7 +22,8 @@ def newline():
   posx = 0
   myylim = myylim + YLIM_INCREMENT
 
-def myfun(instr):
+def plotdots(instr):
+  # takes brailled dots eg 110000 and draw the dots via ax.scatter
   global posx
   global posy
   global VERBOSE
@@ -121,8 +122,9 @@ code_table = {
 #bb = input("ask a letter: ")
 #print(code_table[bb])
 
-def myfun2(inchar):
-  myfun(code_table[inchar])
+def plotsinglechar(inchar):
+  # takes a character eg 'b' and calls the function that plots the dots ("110000")
+  plotdots(code_table[inchar])
 
 
 def rb(instring):
@@ -135,9 +137,9 @@ def rb(instring):
   # print(scsize)
   #print(s2)
   for char in s2:    
-    myfun2(char)
+    plotsinglechar(char)
 
-###myfun2(a)
+###plotsinglechar(a)
 
 a = "#"
 while a != "":
@@ -156,4 +158,8 @@ plt.ylim(2 -myylim, 3)
 #plt.axis('equal')
 #plt.axis('scaled')
 ax.axes.set_aspect('equal')
+#plt.tick_params(
+#    axis='both', which='both', bottom=False, left=False, top=False,
+#    labelbottom=False,labelleft=False)
+ax.axis('off')
 plt.show()                          
